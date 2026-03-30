@@ -93,6 +93,7 @@ section.allElems {
   overflow: hidden;
   position: relative;
   transition: all ease 0.5s;
+  box-shadow: var(--shadow-md);
 }
 
 .elem img {
@@ -121,4 +122,21 @@ section.allElems {
   font-size: 30px;
   position: absolute;
   display: none;
+}
+
+.back {
+  position: absolute;
+  right: 5%;
+  background-color: var(--secondary);
+  border-radius: 50%;
+  padding: 10px;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ternary-2);
+  transition: all ease 0.5s;
+}
+
+.back:active {
+  scale: 0.8;
 }
