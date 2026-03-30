@@ -1,10 +1,25 @@
 :root {
+  /* === COLORS === */
   --primary: #2c687b;
+  --primary-light: #3f879c;
+  --primary-dark: #1f4e5c;
+
   --secondary: #db1a1a;
+
   --ternery: #8cc7c4;
   --ternary-2: #fff6f6;
+
+  /* === UI TOKENS === */
+  --text-dark: #1a1a1a;
+  --text-light: #ffffff;
+  --border: #e5e5e5;
+
+  --radius: 12px;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* === FONTS === */
 @font-face {
   font-family: aeonik;
   font-weight: 200;
@@ -22,8 +37,8 @@
 }
 
 * {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -31,10 +46,79 @@ html,
 body {
   height: 100%;
   width: 100%;
+  font-family: aeonik;
+  color: var(--text-dark);
+  background-color: var(--ternary-2);
 }
 
 .main {
-  height: 100%;
+  min-height: 100%;
+  width: 100%;
+}
+
+/* === NAVBAR === */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
   width: 100%;
   background-color: var(--primary);
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+  z-index: 100;
+}
+
+section.allElems {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  padding-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  position: absolute;
+}
+
+.elem {
+  background-color: #ffffff;
+  height: 300px;
+  width: 240px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: all ease 0.5s;
+}
+
+.elem img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.elem h2 {
+  position: absolute;
+  bottom: 3%;
+  font-weight: 400;
+  right: 5%;
+  color: var(--text-light);
+}
+
+.elem:active {
+  scale: 0.9;
+}
+
+.fullElem {
+  height: 100%;
+  width: 100%;
+  background-color: var(--ternary-2);
+  padding: 40px;
+  font-size: 30px;
+  position: absolute;
+  display: none;
 }
