@@ -44,6 +44,12 @@ function todoList() {
     });
     allTAsk.innerHTML = task;
     localStorage.setItem("currentTask", JSON.stringify(currentTask));
+    document.querySelectorAll(".task button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        currentTask.splice(btn.id, 1);
+        renderTask();
+      });
+    });
   }
   renderTask();
 
@@ -55,20 +61,44 @@ function todoList() {
       imp: taskCheck.checked,
     });
 
+    taskInput.value = "";
+    taskDetailsInput.value = "";
+    taskCheck.checked = false;
+
     renderTask();
-
-    location.reload();
-  });
-
-  const markCompletedBtn = document.querySelectorAll(".task button");
-
-  markCompletedBtn.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      currentTask.splice(btn.id, 1);
-      renderTask();
-      location.reload();
-    });
   });
 }
 
 todoList();
+
+function dailyPlaner() {
+  const dayPlanData = JSON.parse(localStorage.getItem("dayPlanData")) || {};
+  const dayPlan = document.querySelector(".day-planner");
+
+  const hours = Array.from({ length: 18 }, (elem, idx) => {
+    return `${6 + idx}:00 - ${7 + idx}:00`;
+  });
+
+  let days = "";
+  hours.forEach((elem, idx) => {
+    const savedData = dayPlanData[idx] || "";
+    days =
+      days +
+      ` <div class="day-planner-time">
+            <p>${elem}</p>
+            <input id="${idx}"  type="text" placeholder="..." value="${savedData}" />
+          </div>`;
+  });
+
+  dayPlan.innerHTML = days;
+  const dayPlannerInput = document.querySelectorAll(".day-planner input");
+
+  dayPlannerInput.forEach((elem) => {
+    elem.addEventListener("input", () => {
+      dayPlanData[elem.id] = elem.value;
+      localStorage.setItem("dayPlanData", JSON.stringify(dayPlanData));
+    });
+  });
+}
+
+dailyPlaner();
