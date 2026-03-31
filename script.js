@@ -102,3 +102,15 @@ function dailyPlaner() {
 }
 
 dailyPlaner();
+
+function motivationalQuote() {
+  const quote = document.querySelector(".motivation-2 h1");
+  async function fetchQuote() {
+    const response = await fetch("https://dummyjson.com/quotes/random");
+    const data = await response.json();
+    quote.innerHTML = data.quote;
+  }
+  fetchQuote();
+}
+
+motivationalQuote();

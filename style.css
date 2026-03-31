@@ -45,6 +45,7 @@ body {
 .main {
   min-height: 100%;
   width: 100%;
+  position: relative;
 }
 
 /* === NAVBAR === */
@@ -309,6 +310,50 @@ button:active {
   outline: none;
 }
 
-/* .daily-planner-fullpage {
+.motivation-fullpage h2 {
+  font-size: 60px;
+}
+
+.motivation-container {
+  width: 500px;
+  background-color: var(--primary-light);
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  padding-top: 30px;
+}
+
+.motivation-1 {
+  background-color: var(--ternary-2);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.motivation-1 h2 {
+  font-size: 20px;
+  color: var(--primary-light);
+  font-weight: 500;
+}
+
+.motivation-2 {
+  background-color: var(--ternary-2);
+  padding: 20px;
+  border-radius: 10px;
+}
+.motivation-2 h1 {
+  font-size: 35px;
+  color: var(--primary-light);
+  font-weight: 800;
+}
+
+.pomodoro-fullpage {
   display: block;
-} */
+}
+.pomodoro-fullpage h2 {
+  font-size: 60px;
+}
+.pomodoro-fullpage .pomo-timer
