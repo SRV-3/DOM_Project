@@ -356,4 +356,29 @@ button:active {
 .pomodoro-fullpage h2 {
   font-size: 60px;
 }
-.pomodoro-fullpage .pomo-timer
+.pomodoro-fullpage .pomo-timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.pomo-timer h1 {
+  font-size: 150px;
+}
+
+.pomo-timer button {
+  background-color: var(--primary-light);
+  padding: 10px 20px;
+  border: none;
+  color: var(--ternary-2);
+  font-weight: 800;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 5px 5px 0px black;
+  transition: all ease 0.2s;
+}
+
+button:active {
+  box-shadow: 0px 0px 0px black;
+}

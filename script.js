@@ -114,3 +114,60 @@ function motivationalQuote() {
 }
 
 motivationalQuote();
+
+const timer = document.querySelector(".pomo-timer h1");
+const start = document.querySelector(".pomo-timer .start");
+const pause = document.querySelector(".pomo-timer .pause");
+const reset = document.querySelector(".pomo-timer .reset");
+let timerInterval = null;
+let totalSeconds = 1500;
+let isWorksession = true;
+
+function updateTimer() {
+  let minutes = Math.floor(totalSeconds / 60);
+  let seconds = totalSeconds % 60;
+
+  timer.innerHTML = `${String(minutes).padStart("2", "0")}:${String(seconds).padStart("2", "0")}`;
+}
+
+function startTimer() {
+  clearInterval(timerInterval);
+  if (isWorksession) {
+    totalSeconds = 1500;
+    timerInterval = setInterval(function () {
+      if (totalSeconds > 0) {
+        totalSeconds--;
+      } else {
+        clearInterval(timerInterval);
+        isWorksession = false;
+        totalSeconds = 300;
+      }
+      updateTimer();
+    }, 1000);
+  } else {
+    timerInterval = setInterval(function () {
+      if (totalSeconds > 0) {
+        totalSeconds--;
+      } else {
+        clearInterval(timerInterval);
+        isWorksession = true;
+        totalSeconds = 1500;
+      }
+      updateTimer();
+    }, 1000);
+  }
+}
+
+function pauseTimer() {
+  clearInterval(timerInterval);
+}
+
+function resetTimer() {
+  totalSeconds = 1500;
+  clearInterval(timerInterval);
+  updateTimer();
+}
+
+start.addEventListener("click", startTimer);
+pause.addEventListener("click", pauseTimer);
+reset.addEventListener("click", resetTimer);
